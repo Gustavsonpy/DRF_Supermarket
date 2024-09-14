@@ -32,7 +32,7 @@ class UserAPIView(APIView):
             return Response({'Updated': 'The user has been updated!'})
         return Response({'Error': 'Error to update the user'})
     
-    def delete(self, request, user_id):
+    def delete(self, request, user_id): #It's necessary put the 'request' in paramaters for DRF knows the method you want
         user = UserBase.objects.get(id = user_id)
         user.delete()
         return Response({'success': 'User deleted successfully'})
